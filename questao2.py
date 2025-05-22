@@ -1,29 +1,29 @@
 # Questão 2
-# Faça um programa em Python para ler uma tabela contendo os nomes dos alunos de uma turma de 5 alunos.
-# O programa deve solicitar ao usuário os nomes do aluno, sempre perguntando se ele deseja inserir mais um nome na lista.
-# Uma vez lidos todos os alunos, o usuário irá indicar um nome que ele deseja verificar se está presente na lista.
-# O programa deve procurar pelo nome (ou parte deste nome) e, se encontrar, deve exibir na tela o nome completo e o índice do vetor onde está guardado este nome.
+""" Faça um programa em Python para ler uma tabela contendo os nomes dos alunos de uma turma de 5 alunos.
+ O programa deve solicitar ao usuário os nomes do aluno, sempre perguntando se ele deseja inserir mais um nome na lista.
+ Uma vez lidos todos os alunos, o usuário irá indicar um nome que ele deseja verificar se está presente na lista.
+ O programa deve procurar pelo nome (ou parte deste nome) e, se encontrar, deve exibir na tela o nome completo e o índice do vetor onde está guardado este nome. """
 
 alunos = []  # Lista para armazenar os nomes dos alunos
 
 print('Cadastro de Alunos da Turma')
 
 while True:
-    nome = str(input('Digite o nome do aluno: ')).strip()
+    nome = str(input('Digite o nome do aluno: ')).strip().upper()
     alunos.append(nome)
 
     if len(alunos) == 5:
         print('Limite de 5 alunos atingido.')
         break
 
-    continuar = str(input('Deseja adicionar mais um nome? [\033[1;32mS\033[m/\033[1;31mN\033[m] ')).strip().upper()
+    continuar = str(input('Deseja adicionar mais um nome? [\033[1;32m Clique S para Sim \033[m S/N \033[1;31m Cliquem N para Não \033[m] ')).strip().upper()
     if continuar != 'S':
         break
 
 print('-=' * 20)
 print('Lista de alunos cadastrados:')
 for i, aluno in enumerate(alunos, start=1):     # Começa a contar do 1
-    print('{} - {}'.format(i, aluno))
+    print('{} - \033[1;34m{}\033[m'.format(i, aluno))
 print('-=' * 20)
 
 busca = str(input('Digite um nome (ou parte do nome) que deseja buscar: ')).strip().upper()
